@@ -5,7 +5,11 @@
     "dev": "npm-run-all --parallel dev:ui-lib dev:next-app",
     "dev:ui-lib": "npm run dev --workspace=ui-lib",
     "dev:next-app": "npm run dev --workspace=next-app",
-    "storybook": "npm run --workspace=ui-lib storybook"
+    "storybook": "npm run storybook --workspace=ui-lib",
+    "lint:ui-lib": "npm run lint --workspace=ui-lib",
+    "lint:fix:ui-lib": "npm run lint:fix --workspace=ui-lib",
+    "lint:next-app": "npm run lint --workspace=next-app",
+    "lint:fix:next-app": "npm run lint:fix --workspace=next-app"
   },
   "workspaces": [
     "ui-lib",

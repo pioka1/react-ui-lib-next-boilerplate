@@ -1,8 +1,8 @@
-import styled from '@emotion/styled';
+import styled from "@emotion/styled";
 
 export const StyledButton = styled.button`
   padding: 10px 20px;
-  background-color: #cccccc;
+  background-color: ${props => props.theme.color.primary};
   font-size: 18px;
   border: solid 1px;
   border-radius: 4px;
