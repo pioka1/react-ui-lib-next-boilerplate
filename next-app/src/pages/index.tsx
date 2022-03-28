@@ -1,4 +1,4 @@
-import { Button } from "@ecorp/ui-lib";
+import { Button, ECorpIcon } from "@ecorp/ui-lib";
 import type { NextPage } from "next";
 import Head from "next/head";
 import Image from "next/image";
@@ -19,7 +19,7 @@ const Home: NextPage = () => {
           Welcome to <a href="https://nextjs.org">Next.js</a>
 				</h1>
 
-				<Button>Test</Button>
+				<Button text="test" icon={ECorpIcon.DRINK} iconPosition="right" />
 
 				<p className={styles.description}>
           Get started by editing{" "}

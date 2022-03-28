@@ -1,5 +1,5 @@
 import { addDecorator } from "@storybook/react";
-import { withThemesProvider } from "storybook-addon-emotion-theme";
+import { withThemesProvider } from "storybook-addon-styled-component-theme";
 
 const theme1 = {
   name: "ECorp Test Theme 1",
@@ -7,6 +7,13 @@ const theme1 = {
     primary: "red",
     secondary: "#555",
     tertiary: "#777"
+  },
+  iconSize: {
+    xs: 15,
+    sm: 20,
+    md: 25,
+    lg: 30,
+    xl: 50,
   }
 };
 const theme2 = {
@@ -15,6 +22,13 @@ const theme2 = {
     primary: "blue",
     secondary: "#555",
     tertiary: "#777"
+  },
+  iconSize: {
+    xs: 15,
+    sm: 20,
+    md: 25,
+    lg: 30,
+    xl: 50,
   }
 };
 

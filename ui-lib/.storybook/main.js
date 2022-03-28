@@ -4,7 +4,7 @@ module.exports = {
 		"@storybook/addon-links",
 		"@storybook/addon-essentials",
 		"@storybook/addon-interactions",
-		"storybook-addon-emotion-theme/dist/register"
+		"storybook-addon-styled-component-theme/dist/preset"
 	],
 	"framework": "@storybook/react",
 	"core": {

@@ -10,7 +10,7 @@
     "lint:fix:ui-lib": "npm run lint:fix --workspace=ui-lib",
     "lint:next-app": "npm run lint --workspace=next-app",
     "lint:fix:next-app": "npm run lint:fix --workspace=next-app",
-    "generate-svg": "npx @svgr/cli --typescript --no-dimensions --out-dir ui-lib/src/atoms/Icon/generated -- ui-lib/src/atoms/Icon/raw"
+    "generate-svg": "npx @svgr/cli --typescript --no-dimensions --prettier-config .prettierrc.json --out-dir ui-lib/src/atoms/Icon/generated -- ui-lib/src/atoms/Icon/raw"
   },
   "workspaces": [
     "ui-lib",

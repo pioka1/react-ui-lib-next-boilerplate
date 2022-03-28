@@ -21,12 +21,13 @@
         "import",
         "@typescript-eslint"
     ],
+    "ignorePatterns": ["*.js"],
     "rules": {
+        "import/order": ["error", { "groups": [["builtin", "external"]], "newlines-between": "always" }],
         "indent": ["error", "tab"],
         "linebreak-style": ["error", "unix"],
-        "quotes": ["error", "double"],
-        "semi": ["error", "always"],
         "object-curly-spacing": ["error", "always"],
-        "import/order": ["error", { "groups": [["builtin", "external"]], "newlines-between": "always" }]
+        "quotes": ["error", "double"],
+        "semi": ["error", "always"]
     }
 }

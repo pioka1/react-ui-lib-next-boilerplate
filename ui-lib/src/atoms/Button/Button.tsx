@@ -1,13 +1,34 @@
 import * as React from "react";
 
+import { ECorpIcon, Icon } from "../Icon/Icon";
 import { StyledButton } from "./Button.styles";
-import { Drink } from "../Icon/generated";
 
-export const Button:React.FC = ({ children }) => {
+export interface ButtonProps {
+	text: string;
+	icon?: ECorpIcon;
+	iconSize?: number;
+	iconColor?: string;
+	iconPosition?: "left"|"right";
+}
+
+export const Button:React.FC<ButtonProps> = (props) => {
+	const {
+		text,
+		icon,
+		iconSize,
+		iconColor,
+		iconPosition,
+	} = props;
+
 	return (
 		<StyledButton>
-			{children}
-			<Drink height={50} width={50} />
+			{icon && iconPosition === "left" &&
+			<Icon icon={icon} size={iconSize} color={iconColor} />
+			}
+			{text}
+			{icon && iconPosition === "right" &&
+			<Icon icon={icon} size={iconSize} color={iconColor} />
+			}
 		</StyledButton>
 	);
 };
