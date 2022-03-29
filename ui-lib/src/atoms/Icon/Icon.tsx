@@ -1,4 +1,4 @@
-import { useTheme } from "styled-components";
+import { useTheme } from "@emotion/react";
 import * as React from "react";
 
 import { Drink } from "./generated";

@@ -13,17 +13,8 @@ module.exports = {
 	module: {
 		rules: [
 			{
-				test: /\.tsx?/,
-				use: "ts-loader"
-			},
-			{
-				test: /\.js$/,
-				use: {
-					loader: 'babel-loader',
-					options: {
-						plugins: ['babel-plugin-styled-components']
-					}
-				}
+				test: /\.([jt]sx?)?$/,
+				use: "swc-loader"
 			}
 		]
 	},
@@ -33,6 +24,7 @@ module.exports = {
 	externals: [
 		"react",
 		"react-dom",
-		"styled-components",
+		"@emotion/core",
+		"@emotion/react",
 	],
 };

@@ -1,26 +1,11 @@
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import { ECorpThemeProvider, ECorpTheme } from "@ecorp/ui-lib";
-
-const theme: ECorpTheme = {
-	name: "ECorp Test Theme",
-	color: {
-		primary: "red",
-		secondary: "#555",
-		tertiary: "#777"
-	},
-	iconSize: {
-		xs: 15,
-		sm: 20,
-		md: 25,
-		lg: 30,
-		xl: 50,
-	}
-};
+import { ECorpThemeProvider, eCorpTestTheme1 } from "@ecorp/ui-lib";
 
 function MyApp({ Component, pageProps }: AppProps) {
+	console.log(eCorpTestTheme1);
 	return (
-		<ECorpThemeProvider theme={theme}>
+		<ECorpThemeProvider theme={eCorpTestTheme1}>
 			<Component {...pageProps} />
 		</ECorpThemeProvider>
 	);
