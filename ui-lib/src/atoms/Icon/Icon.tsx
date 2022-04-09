@@ -4,7 +4,8 @@ import * as React from "react";
 import { Drink } from "./generated";
 
 enum ECorpIcon {
-	DRINK = "DRINK"
+	DRINK = "DRINK",
+	PLANE = "PLANE"
 }
 
 interface IconProps {
@@ -24,6 +25,7 @@ const Icon:React.FC<IconProps> = ({ icon, size, color }) => {
 
 	switch (icon) {
 	case ECorpIcon.DRINK:
+	case ECorpIcon.PLANE:
 		return <Drink {...svgProps} />;
 	}
 };
