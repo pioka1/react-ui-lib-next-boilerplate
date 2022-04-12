@@ -1,25 +1,30 @@
-import { useTheme } from "@emotion/react";
 import * as React from "react";
 
 import { Drink } from "./generated";
 
-enum ECorpIcon {
+export enum ECorpIcon {
 	DRINK = "DRINK",
 	PLANE = "PLANE"
 }
 
-interface IconProps {
+export enum ECorpIconSize {
+	"XS" = 20,
+	"SM" = 25,
+	"MD" = 30,
+	"LG" = 35,
+	"XL" = 50,
+}
+
+export interface IconProps {
 	icon: ECorpIcon;
-	size?: number;
+	size?: ECorpIconSize;
 	color?: string;
 }
 
-const Icon:React.FC<IconProps> = ({ icon, size, color }) => {
-	const theme = useTheme();
-
+export const Icon:React.FC<IconProps> = ({ icon, size, color }) => {
 	const svgProps = {
-		height: size || theme.iconSize.md,
-		width: size || theme.iconSize.md,
+		height: size || ECorpIconSize.MD,
+		width: size || ECorpIconSize.MD,
 		fill: color
 	};
 
@@ -29,5 +34,3 @@ const Icon:React.FC<IconProps> = ({ icon, size, color }) => {
 		return <Drink {...svgProps} />;
 	}
 };
-
-export { ECorpIcon, Icon };

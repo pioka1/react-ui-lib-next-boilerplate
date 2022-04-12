@@ -1,12 +1,12 @@
 import * as React from "react";
 
-import { ECorpIcon, Icon } from "../Icon/Icon";
+import { ECorpIcon, ECorpIconSize, Icon } from "../Icon/Icon";
 import { StyledButton } from "./Button.styles";
 
 export interface ButtonProps {
 	text: string;
 	icon?: ECorpIcon;
-	iconSize?: number;
+	iconSize?: ECorpIconSize;
 	iconColor?: string;
 	iconPosition?: "left"|"right";
 }

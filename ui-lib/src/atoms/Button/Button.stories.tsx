@@ -2,7 +2,7 @@ import React from "react";
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 
 import { Button as ButtonUi } from "./Button";
-import { ECorpIcon } from "../Icon/Icon";
+import { ECorpIcon, ECorpIconSize } from "../Icon/Icon";
 
 export default {
 	title: "atoms/Button",
@@ -13,9 +13,9 @@ const Template: ComponentStory<typeof ButtonUi> = (args) => <ButtonUi {...args} 
 
 export const Button = Template.bind({});
 Button.args = {
-	text: "Text",
+	text: "Drink",
 	icon: ECorpIcon.DRINK,
 	iconPosition: "right",
-	iconSize: 25,
+	iconSize: ECorpIconSize.MD,
 	iconColor: "#000000"
 };
