@@ -59,12 +59,12 @@ const eCorpTestTheme2: ECorpTheme = {
 		xxl: 1400,
 	},
 	color: {
-		primary: "blue",
+		primary: "#10E856",
 		secondary: "#555",
 		tertiary: "#777"
 	},
 	typography: {
-		fontFamily: "Verdana",
+		fontFamily: "Trebuchet MS",
 		fontSize: {
 			xs: "0.5rem",
 			sm: "0.8rem",
@@ -80,3 +80,4 @@ const ECorpThemeProvider = ThemeProvider;
 const mq = (breakpoint: number) => `@media (min-width: ${breakpoint}px)`;
 
 export { ECorpTheme, ECorpThemeProvider, eCorpTestTheme1, eCorpTestTheme2, mq };
+export * from "./GlobalStyles";
