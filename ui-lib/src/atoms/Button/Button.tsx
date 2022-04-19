@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 
 import { ECorpIcon, ECorpIconSize, Icon } from "../Icon/Icon";
 import { StyledButton } from "./Button.styles";
