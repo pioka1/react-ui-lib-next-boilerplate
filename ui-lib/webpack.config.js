@@ -12,8 +12,16 @@ module.exports = {
 	},
 	module: {
 		rules: [
+			/*
+			** Once swc-loader is capable of outputting type declarations, remove this.
+			*  https://github.com/swc-project/swc/issues/657
+			**/
 			{
-				test: /\.([jt]sx?)?$/,
+				test: /\.tsx?/,
+				use: "ts-loader"
+			},
+			{
+				test: /\.js$/,
 				use: "swc-loader"
 			}
 		]
