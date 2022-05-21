@@ -5,6 +5,7 @@ form:
       label: Text
       $type: textField
       required: true
+      i18n: true
     color:
       label: Text color
       $type: textField
