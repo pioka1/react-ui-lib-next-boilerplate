@@ -1,0 +1,13 @@
+title: "WIF: Page"
+baseUrl: http://localhost:3000
+routeTemplate: "/api/preview?slug=/{language}{{@path}}"
+
+dialog: wif-lm:pages/page
+renderType: spa
+class: info.magnolia.rendering.spa.renderer.SpaRenderableDefinition
+areas:
+  main:
+    title: Main Area
+    availableComponents:
+      TextBox:
+        id: wif-lm:components/textbox

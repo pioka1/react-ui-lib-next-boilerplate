@@ -1,0 +1,15 @@
+label: Text Box
+form:
+  properties:
+    text:
+      label: Text
+      $type: textField
+      required: true
+    color:
+      label: Text color
+      $type: textField
+      required: true
+    backgroundColor:
+      label: Background color
+      $type: textField
+      required: true

@@ -15,3 +15,7 @@
 # ui lib
 /ui-lib/dist
 /ui-lib/node_modules
+
+# magnolia
+/magnolia/apache-tomcat
+/magnolia/downloads
