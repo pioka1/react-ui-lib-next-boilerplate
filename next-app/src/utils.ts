@@ -1,13 +1,13 @@
-export const languages = ["en", "sv"];
+import { locales } from "./constants/app";
 
 export function getCurrentLanguage(url: string) {
-	for (let i = 0; i < languages.length; i++) {
-		const language = languages[i];
+	for (let i = 0; i < locales.length; i++) {
+		const language = locales[i];
 
 		if (url.indexOf("/" + language) > -1) return language;
 	}
 
-	return languages[0];
+	return locales[0];
 }
 
 export function setURLSearchParams(url: string, param: string) {
