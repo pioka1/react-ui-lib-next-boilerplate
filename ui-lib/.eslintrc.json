@@ -24,7 +24,7 @@
     "ignorePatterns": ["*.js"],
     "rules": {
         "import/order": ["error", { "groups": [["builtin", "external"]], "newlines-between": "always" }],
-        "indent": ["error", "tab"],
+        "indent": ["error", 2],
         "linebreak-style": ["error", "unix"],
         "object-curly-spacing": ["error", "always"],
         "quotes": ["error", "double"],

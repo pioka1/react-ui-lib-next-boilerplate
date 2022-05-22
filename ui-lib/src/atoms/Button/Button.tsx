@@ -12,23 +12,23 @@ export interface ButtonProps {
 }
 
 export const Button:React.FC<ButtonProps> = (props) => {
-	const {
-		text,
-		icon,
-		iconSize,
-		iconColor,
-		iconPosition,
-	} = props;
+  const {
+    text,
+    icon,
+    iconSize,
+    iconColor,
+    iconPosition,
+  } = props;
 
-	return (
-		<StyledButton>
-			{icon && iconPosition === "left" &&
+  return (
+    <StyledButton>
+      {icon && iconPosition === "left" &&
 			<Icon icon={icon} size={iconSize} color={iconColor} />
-			}
-			{text}
-			{icon && iconPosition === "right" &&
+      }
+      {text}
+      {icon && iconPosition === "right" &&
 			<Icon icon={icon} size={iconSize} color={iconColor} />
-			}
-		</StyledButton>
-	);
+      }
+    </StyledButton>
+  );
 };

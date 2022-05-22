@@ -22,15 +22,15 @@ export interface IconProps {
 }
 
 export const Icon:React.FC<IconProps> = ({ icon, size, color }) => {
-	const svgProps = {
-		height: size || ECorpIconSize.MD,
-		width: size || ECorpIconSize.MD,
-		fill: color
-	};
+  const svgProps = {
+    height: size || ECorpIconSize.MD,
+    width: size || ECorpIconSize.MD,
+    fill: color
+  };
 
-	switch (icon) {
-	case ECorpIcon.DRINK:
-	case ECorpIcon.PLANE:
-		return <Drink {...svgProps} />;
-	}
+  switch (icon) {
+  case ECorpIcon.DRINK:
+  case ECorpIcon.PLANE:
+    return <Drink {...svgProps} />;
+  }
 };

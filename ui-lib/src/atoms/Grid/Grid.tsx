@@ -10,21 +10,21 @@ export interface GridProps {
 }
 
 export const Grid:React.FC<GridProps> = (props, context) => {
-	const {
-		colsSm = 1,
-		colsMd = 4,
-		colsLg = 8,
-		gap = "0",
-	} = props;
+  const {
+    colsSm = 1,
+    colsMd = 4,
+    colsLg = 8,
+    gap = "0",
+  } = props;
 
-	return (
-		<GridContainer
-			colsSm={colsSm}
-			colsMd={colsMd}
-			colsLg={colsLg}
-			gap={gap}
-		>
-			{props.children}
-		</GridContainer>
-	);
+  return (
+    <GridContainer
+      colsSm={colsSm}
+      colsMd={colsMd}
+      colsLg={colsLg}
+      gap={gap}
+    >
+      {props.children}
+    </GridContainer>
+  );
 };

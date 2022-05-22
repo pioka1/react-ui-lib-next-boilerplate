@@ -2,9 +2,9 @@ import React from "react";
 import { Global, css, useTheme } from "@emotion/react";
 
 export const GlobalStyles = () => {
-	const theme = useTheme();
+  const theme = useTheme();
 
-	const styles = css`
+  const styles = css`
         html {
 					// Modern browsers have a base font-size of 16px. With this trick, 1rem == 10px
 					font-size: 62.5%;
@@ -23,5 +23,5 @@ export const GlobalStyles = () => {
 				}
 		`;
 
-	return <Global styles={styles} />;
+  return <Global styles={styles} />;
 };
