@@ -1,6 +1,6 @@
 import Head from "next/head";
 import React from "react";
-import { Grid } from "@ecorp/ui-lib";
+import { Container } from "@ecorp/ui-lib";
 
 import { Navigation } from "../Navigation/Navigation";
 import { Footer } from "../Footer/Footer";
@@ -24,9 +24,9 @@ const Boilerplate:React.FC<BoilerplateProps> = ({
     </Head>
     <Navigation pagenav={pagenav} currentLanguage={currentLanguage} />
     <main>
-      <Grid>
+      <Container>
         {children}
-      </Grid>
+      </Container>
     </main>
     <Footer />
   </>

@@ -31,7 +31,7 @@ const eCorpTestTheme1: ECorpTheme = {
     md: 768,
     lg: 992,
     xl: 1200,
-    xxl: 1400,
+    xxl: 1440,
   },
   color: {
     primary: "#74D0FF",
@@ -56,7 +56,7 @@ const eCorpTestTheme2: ECorpTheme = {
     md: 768,
     lg: 992,
     xl: 1200,
-    xxl: 1400,
+    xxl: 1440,
   },
   color: {
     primary: "#10E856",

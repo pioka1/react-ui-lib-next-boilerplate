@@ -1,6 +1,6 @@
 import React from "react";
 
-import { GridContainer } from "./Grid.styles";
+import { Container, GridContainer } from "./Grid.styles";
 
 export interface GridProps {
 	colsSm?: number;
@@ -9,7 +9,7 @@ export interface GridProps {
 	gap?: string;
 }
 
-export const Grid:React.FC<GridProps> = (props, context) => {
+const Grid:React.FC<GridProps> = (props) => {
   const {
     colsSm = 1,
     colsMd = 4,
@@ -28,3 +28,5 @@ export const Grid:React.FC<GridProps> = (props, context) => {
     </GridContainer>
   );
 };
+
+export { Container, Grid };
