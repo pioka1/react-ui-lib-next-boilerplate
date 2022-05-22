@@ -11,6 +11,8 @@ interface NavigationProps {
 	currentLanguage: string;
 }
 
+const NEXT_PUBLIC_MGNL_ROOT = String(process.env.NEXT_PUBLIC_MGNL_ROOT);
+
 const Navigation:React.FC<NavigationProps> = (props) => {
   const { pagenav } = props;
   const router = useRouter();
@@ -30,7 +32,7 @@ const Navigation:React.FC<NavigationProps> = (props) => {
 
   const pages = pagenav["@nodes"].map((node: string) => {
     const subnode = pagenav[node]; // Page directly under homepage
-    const href = subnode["@path"].replace(String(process.env.NEXT_PUBLIC_MGNL_ROOT), "");
+    const href = subnode["@path"].replace(NEXT_PUBLIC_MGNL_ROOT, "");
 
     return (
         <li key={subnode.title}>
