@@ -1,6 +1,6 @@
 import React from "react";
 
-import { StyledLangLinks, StyledNavigation, StyledPageLinks } from "./Navigation.styles";
+import { LangLinksContainer, LogoContainer, Nav, PageLinksContainer } from "./Navigation.styles";
 
 interface NavigationProps {
 	logo: React.ReactNode; // <NextLink><NextImage></NextLink> or <a><img /></a>
@@ -22,15 +22,17 @@ const Navigation:React.FC<NavigationProps> = (props) => {
 	} = props;
 
   return (
-    <StyledNavigation backgroundColor={backgroundColor}>
-			{logo}
-			<StyledPageLinks>
+    <Nav backgroundColor={backgroundColor}>
+			<LogoContainer>
+				{logo}
+			</LogoContainer>
+			<PageLinksContainer>
 				{pages}
-			</StyledPageLinks>
-			<StyledLangLinks currentLanguage={currentLanguage}>
+			</PageLinksContainer>
+			<LangLinksContainer currentLanguage={currentLanguage}>
 				{languages}
-			</StyledLangLinks>
-		</StyledNavigation>
+			</LangLinksContainer>
+		</Nav>
   );
 };
 

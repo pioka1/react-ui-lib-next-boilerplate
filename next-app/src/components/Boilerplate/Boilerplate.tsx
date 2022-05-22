@@ -1,4 +1,5 @@
 import React from "react";
+import { Grid } from "@ecorp/ui-lib";
 
 import { Navigation } from "../Navigation/Navigation";
 import { Footer } from "../Footer/Footer";
@@ -12,7 +13,9 @@ const Boilerplate:React.FC<BoilerplateProps> = ({ pagenav, currentLanguage, chil
   <>
     <Navigation pagenav={pagenav} currentLanguage={currentLanguage} />
     <main>
-      {children}
+      <Grid>
+        {children}
+      </Grid>
     </main>
     <Footer />
   </>

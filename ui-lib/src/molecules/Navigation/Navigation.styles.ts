@@ -7,17 +7,26 @@ interface StyledLangLinksProps {
   currentLanguage: string;
 }
 
-export const StyledNavigation = styled.nav<StyledNavigationProps>`
+export const Nav = styled.nav<StyledNavigationProps>`
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
   background-color: ${props => props.backgroundColor};
+  padding: 16px 0;
 `;
 
-export const StyledPageLinks = styled.ul`
+export const LogoContainer = styled.span`
+  padding-left: 20rem;
+`;
+
+export const PageLinksContainer = styled.ul`
 	display: flex;
 	list-style-type: none;
+  justify-content: center;
+  align-items: center;
 `;
 
-export const StyledLangLinks = styled.span<StyledLangLinksProps>`
+export const LangLinksContainer = styled.span<StyledLangLinksProps>`
 	display: flex;
+  justify-content: end;
+  padding-right: 20rem;
 `;
