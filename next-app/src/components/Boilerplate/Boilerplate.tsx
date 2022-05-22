@@ -11,7 +11,12 @@ interface BoilerplateProps {
 	currentLanguage: string;
 }
 
-const Boilerplate:React.FC<BoilerplateProps> = ({ title, pagenav, currentLanguage, children }) => (
+const Boilerplate:React.FC<BoilerplateProps> = ({
+  title,
+  pagenav,
+  currentLanguage,
+  children
+}) => (
   <>
     <Head>
       <title>{title}</title>
