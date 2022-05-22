@@ -38,7 +38,7 @@ export default function Path(props: WifStaticProps) {
   const { page, pagenav, templateAnnotations, currentLanguage } = props;
 
   return (
-    <Boilerplate pagenav={pagenav} currentLanguage={currentLanguage}>
+    <Boilerplate title={page.title} pagenav={pagenav} currentLanguage={currentLanguage}>
       {page && <EditablePage content={page} config={config} templateAnnotations={templateAnnotations} />}
     </Boilerplate>
   );

@@ -11,6 +11,6 @@ namespace Wif {
 		[node: string]: MgnlNode;
 
 		// Page template properties
-		title?: string;
+		title: string;
 	}
 }
