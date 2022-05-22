@@ -1,3 +1,4 @@
+import { ParsedUrlQuery } from "querystring";
 import { GetStaticProps, GetStaticPaths } from "next";
 import { EditablePage } from "@magnolia/react-editor";
 
@@ -6,27 +7,34 @@ import { locales } from "../constants/app";
 import { config } from "../magnolia/magnolia.config";
 import { getCurrentLanguage, setURLSearchParams } from "../utils";
 
-const defaultBaseUrl = "http://localhost:8080";
-const mgnlAuthorInstance = "/magnoliaAuthor";
-const rootNodeName = "/wif";
-const pagesApi = defaultBaseUrl + mgnlAuthorInstance + "/.rest/delivery/pages/v1";
-const templateAnnotationsApi = defaultBaseUrl + mgnlAuthorInstance + "/.rest/template-annotations/v1";
-const pagenavApi = defaultBaseUrl + mgnlAuthorInstance + "/.rest/delivery/pagenav/v1";
+const mgnlHost = String(process.env.NEXT_PUBLIC_MGNL_HOST);
+const mgnlAuthor = String(process.env.NEXT_PUBLIC_MGNL_AUTHOR);
+const mgnlRootNode = String(process.env.NEXT_PUBLIC_MGNL_ROOT);
+const mgnlApiPages = mgnlHost + mgnlAuthor + String(process.env.NEXT_PUBLIC_MGNL_API_PAGES);
+const mgnlApiPagenav = mgnlHost + mgnlAuthor + String(process.env.NEXT_PUBLIC_MGNL_API_PAGENAV);
+const mgnlApiTemplateAnnotations = mgnlHost + mgnlAuthor + String(process.env.NEXT_PUBLIC_MGNL_API_TEMPLATE);
 
 interface WifNextPath {
 	params: {
-		path: any;
+		path: string[];
 	}
 	locale: string;
 }
-interface PathProps {
-	page: any;
-	templateAnnotations: any;
-	pagenav: any;
+interface WifPreviewData {
+	query: {
+		slug: string;
+	}
+}
+interface WifStaticProps {
+	page: Wif.MgnlNode;
+	pagenav: Wif.MgnlNode;
+	templateAnnotations: {
+		[node: string]: string;
+	};
 }
 
-export default function Path(props: PathProps) {
-	const { page, templateAnnotations, pagenav } = props;
+export default function Path(props: WifStaticProps) {
+	const { page, pagenav, templateAnnotations } = props;
 
 	return (
 		<Boilerplate>
@@ -36,15 +44,15 @@ export default function Path(props: PathProps) {
 }
 
 const getMgnlNodePath = (node: Wif.MgnlNode, paths: Array<string>) => {
-	let path: any = node["@path"].replace(rootNodeName, "");
+	let path: any = node["@path"].replace(mgnlRootNode, "");
 
-	if (path.length) paths.push(path);
+	if (path.length) paths.push(path); // Root directory not added here
 
 	node["@nodes"].forEach((nodeName) => getMgnlNodePath(node[nodeName], paths));
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-	const navResponse = await fetch(pagenavApi + rootNodeName);
+	const navResponse = await fetch(mgnlApiPagenav + mgnlRootNode);
 	const nav = await navResponse.json();
 
 	const navPaths: string[] = [];
@@ -52,7 +60,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 
 	let paths: Array<WifNextPath> = [];
 	locales.forEach((locale: string) => {
-		paths.push({ params: { path: [] }, locale }); // Root directory
+		paths.push({ params: { path: [] }, locale }); // Root directory added here
 		navPaths.forEach((navPath: string) => {
 			const navPathArray = navPath.split("/");
 			navPathArray.shift();
@@ -60,7 +68,6 @@ export const getStaticPaths: GetStaticPaths = async () => {
 			paths.push({ params: { path: navPathArray }, locale });
 		});
 	});
-	console.log(JSON.stringify(paths));
 
 	return {
 		paths,
@@ -68,51 +75,42 @@ export const getStaticPaths: GetStaticPaths = async () => {
 	};
 };
 
-export const getStaticProps: GetStaticProps = async (context) => {
-	console.log("context");
-	console.log(context);
+export const getStaticProps: GetStaticProps<WifStaticProps, ParsedUrlQuery, WifPreviewData> = async (context) => {
+	let resolvedUrl, pagePath, currentLanguage;
 
-	// @ts-ignore
-	const resolvedUrl = context.preview ? context.previewData?.query?.slug || ""
-		: context.params?.path && Array.isArray(context.params?.path)
-			? "/" + context.params.path.join("/") : "";
+	if (context.preview && context.previewData) {
+		resolvedUrl = context.previewData.query.slug;
+		pagePath = mgnlRootNode + resolvedUrl.replace(new RegExp(".*" + mgnlRootNode), "");
+		currentLanguage = getCurrentLanguage(resolvedUrl);
+	} else {
+		if (context.params && Array.isArray(context.params?.path)) {
+			resolvedUrl = "/" + context.params.path.join("/");
+		} else {
+			resolvedUrl = "/";
+		}
+		pagePath = mgnlRootNode + resolvedUrl;
+		currentLanguage = context.locale === "default" ? "en" : context.locale;
+	}
 
-	const currentLanguage = context.preview ?
-		getCurrentLanguage(resolvedUrl) :
-		context.locale === "default" ? "en" : context.locale;
+	global.mgnlInPageEditor = context.preview;
 
-	// @ts-ignore
-	const isPagesApp = context.previewData?.query?.mgnlPreview || null;
-	const props = {} as PathProps;
+	const pagesRes = await fetch(setURLSearchParams(mgnlApiPages + pagePath, "lang=" + currentLanguage));
+	const page = await pagesRes.json();
 
-	// @ts-ignore
-	global.mgnlInPageEditor = isPagesApp === "false";
+	const pagenavRes = await fetch(setURLSearchParams(mgnlApiPagenav + mgnlRootNode, "lang=" + currentLanguage));
+	const pagenav = await pagenavRes.json();
 
-	// Find out page path in Magnolia
-	let pagePath = context.preview
-		? rootNodeName + resolvedUrl.replace(new RegExp(".*" + rootNodeName), "")
-		: rootNodeName + resolvedUrl;
-
-	pagePath = pagePath.replace("/" + currentLanguage, "");
-	console.log("pagepath");
-	console.log(pagePath);
-
-	// Fetching page content
-	const pagesRes = await fetch(setURLSearchParams(pagesApi + pagePath, "lang=" + currentLanguage));
-	props.page = await pagesRes.json();
-
-	// Fetching page navigation
-	const pagenavRes = await fetch(setURLSearchParams(pagenavApi + rootNodeName, "lang=" + currentLanguage));
-	props.pagenav = await pagenavRes.json();
-
-	// Fetch template annotations only inside Magnolia WYSIWYG
-	if (isPagesApp) {
-		const templateAnnotationsRes = await fetch(templateAnnotationsApi + pagePath);
-
-		props.templateAnnotations = await templateAnnotationsRes.json();
+	let templateAnnotations = null;
+	if (context.preview) {
+		const templateAnnotationsRes = await fetch(mgnlApiTemplateAnnotations + pagePath);
+		templateAnnotations = await templateAnnotationsRes.json();
 	}
 
 	return {
-		props,
+		props: {
+			page,
+			pagenav,
+			templateAnnotations,
+		}
 	};
 };
