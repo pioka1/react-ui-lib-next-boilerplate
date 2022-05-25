@@ -13,6 +13,10 @@ const StyledTextBox = styled.div<StyledTextBoxProps>`
 	border-radius: 12px;
 	${props => `color: ${props.color};`}
 	${props => `background-color: ${props.backgroundColor};`}
+
+	> span {
+		font-size: 3rem;
+	}
 `;
 
 export { StyledTextBox };

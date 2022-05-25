@@ -12,27 +12,27 @@ interface NavigationProps {
 }
 
 const Navigation:React.FC<NavigationProps> = (props) => {
-	const {
-		logo,
-		pages,
-		languages,
-		currentLanguage,
-		isDesktop,
-		backgroundColor,
-	} = props;
+  const {
+    logo,
+    pages,
+    languages,
+    currentLanguage,
+    isDesktop,
+    backgroundColor,
+  } = props;
 
   return (
     <Nav backgroundColor={backgroundColor}>
-			<LogoContainer>
-				{logo}
-			</LogoContainer>
-			<PageLinksContainer>
-				{pages}
-			</PageLinksContainer>
-			<LangLinksContainer currentLanguage={currentLanguage}>
-				{languages}
-			</LangLinksContainer>
-		</Nav>
+      <LogoContainer>
+        {logo}
+      </LogoContainer>
+      <PageLinksContainer>
+        {pages}
+      </PageLinksContainer>
+      <LangLinksContainer currentLanguage={currentLanguage}>
+        {languages}
+      </LangLinksContainer>
+    </Nav>
   );
 };
 

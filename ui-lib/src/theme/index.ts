@@ -12,9 +12,15 @@ interface ECorpTheme {
 		primary: string;
 		secondary: string;
 		tertiary: string;
+    [name: string]: string;
 	}
 	typography: {
-		fontFamily: string;
+		fontFamily: {
+      name: string;
+      srcSlim?: string;
+      srcRegular?: string;
+      srcBold?: string;
+    };
 		fontSize: {
 			xs: string;
 			sm: string;
@@ -39,7 +45,9 @@ const eCorpTestTheme1: ECorpTheme = {
     tertiary: "#777"
   },
   typography: {
-    fontFamily: "Verdana",
+    fontFamily: {
+      name: "Verdana"
+    },
     fontSize: {
       xs: "0.5rem",
       sm: "0.8rem",
@@ -64,7 +72,9 @@ const eCorpTestTheme2: ECorpTheme = {
     tertiary: "#777"
   },
   typography: {
-    fontFamily: "Trebuchet MS",
+    fontFamily: {
+      name: "Trebuchet MS"
+    },
     fontSize: {
       xs: "0.5rem",
       sm: "0.8rem",

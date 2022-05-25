@@ -1,9 +1,11 @@
 import type { AppProps } from "next/app";
-import { ECorpThemeProvider, eCorpTestTheme1, GlobalStyles } from "@ecorp/ui-lib";
+import { ECorpTheme, ECorpThemeProvider, GlobalStyles } from "@ecorp/ui-lib";
+
+import { wifTheme } from "../constants/app";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <ECorpThemeProvider theme={eCorpTestTheme1}>
+    <ECorpThemeProvider theme={wifTheme}>
       <GlobalStyles />
       <Component {...pageProps} />
     </ECorpThemeProvider>

@@ -7,10 +7,8 @@ interface TextBoxProps {
 	backgroundColor: string;
 }
 
-const TextBox:React.FC<TextBoxProps> = (props, context) => (
-	<TextBoxUi color={props.color} backgroundColor={props.backgroundColor}>
-		<span>{props.text}</span>
-	</TextBoxUi>
+const TextBox:React.FC<TextBoxProps> = (props) => (
+  <TextBoxUi text={props.text} color={props.color} backgroundColor={props.backgroundColor} />
 );
 
 export { TextBox };

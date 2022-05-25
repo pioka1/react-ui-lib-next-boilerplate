@@ -12,7 +12,10 @@ interface GridContainerProps {
 export const Container = styled.div`
 	margin-left: auto;
 	margin-right: auto;
-	max-width: ${props => props.theme.breakpoints.xxl}px;
+	max-width: ${props => props.theme.breakpoints.xl}px;
+	${props => mq(props.theme.breakpoints.xxl)} {
+		max-width: ${props => props.theme.breakpoints.xxl}px;
+	}
 `;
 
 export const GridContainer = styled(Container)<GridContainerProps>`

@@ -13,6 +13,7 @@ const Template: ComponentStory<typeof TextBoxUi> = (args) => <TextBoxUi {...args
 export const TextBox = Template.bind({});
 TextBox.storyName = "TextBox";
 TextBox.args = {
+  text: "TextBox",
   color: "red",
   backgroundColor: "blue"
 };

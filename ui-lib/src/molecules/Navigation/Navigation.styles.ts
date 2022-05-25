@@ -23,6 +23,13 @@ export const PageLinksContainer = styled.ul`
 	list-style-type: none;
   justify-content: center;
   align-items: center;
+  a {
+    text-decoration: none;
+  }
+  span {
+    font-size: 2rem;
+    color: ${props => props.theme.color.primary};
+  }
 `;
 
 export const LangLinksContainer = styled.span<StyledLangLinksProps>`

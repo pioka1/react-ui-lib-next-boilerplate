@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 import { Navigation as NavigationUi } from "@ecorp/ui-lib";
 
-import { locales } from "../../constants/app";
+import { locales, wifTheme } from "../../constants/app";
 
 interface NavigationProps {
 	pagenav: Wif.MgnlNode;
@@ -21,10 +21,10 @@ const Navigation:React.FC<NavigationProps> = (props) => {
     <Link href="/" passHref>
       <a>
         <Image
-            src="/wif-logo.svg"
-            alt="Work in Finland logo"
-            width="108"
-            height="45"
+          src="/wif-logo.svg"
+          alt="Work in Finland logo"
+          width="108"
+          height="45"
         />
       </a>
     </Link>
@@ -35,21 +35,22 @@ const Navigation:React.FC<NavigationProps> = (props) => {
     const href = subnode["@path"].replace(NEXT_PUBLIC_MGNL_ROOT, "");
 
     return (
-        <li key={subnode.title}>
-          <Link href={href} passHref>
-            <a>
-              <span>{subnode.title}</span>
-            </a>
-          </Link>
-        </li>
+      <li key={subnode.title}>
+        <Link href={href} passHref>
+          <a>
+            <span>{subnode.title}</span>
+          </a>
+        </Link>
+      </li>
     );
   });
 
   const languages = locales.map((lang: string) => (
-    <Link href={router.asPath} locale={lang} passHref>
+    <Link href={router.asPath} locale={lang} passHref key={lang}>
       <a>
         <Image
           src={`/flags/${lang}.svg`}
+          alt={`Flag of ${lang}`}
           height={40}
           width={30}
         />
@@ -64,7 +65,7 @@ const Navigation:React.FC<NavigationProps> = (props) => {
       languages={languages}
       currentLanguage={router.locale ?? "en"}
       isDesktop
-      backgroundColor="gray"
+      backgroundColor={wifTheme.color.white}
     />
   );
 };

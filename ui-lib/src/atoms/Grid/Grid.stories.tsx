@@ -11,18 +11,18 @@ export default {
 
 const Template: ComponentStory<typeof GridUi> = (args) => (
   <GridUi {...args}>
-    <TextBox backgroundColor={"navy"} color={"#FFFFFF"}>TextBox</TextBox>
-    <TextBox backgroundColor={"navy"} color={"#FFFFFF"}>TextBox</TextBox>
-    <TextBox backgroundColor={"navy"} color={"#FFFFFF"}>TextBox</TextBox>
-    <TextBox backgroundColor={"navy"} color={"#FFFFFF"}>TextBox</TextBox>
-    <TextBox backgroundColor={"navy"} color={"#FFFFFF"}>TextBox</TextBox>
-    <TextBox backgroundColor={"navy"} color={"#FFFFFF"}>TextBox</TextBox>
-    <TextBox backgroundColor={"navy"} color={"#FFFFFF"}>TextBox</TextBox>
-    <TextBox backgroundColor={"navy"} color={"#FFFFFF"}>TextBox</TextBox>
-    <TextBox backgroundColor={"navy"} color={"#FFFFFF"}>TextBox</TextBox>
-    <TextBox backgroundColor={"navy"} color={"#FFFFFF"}>TextBox</TextBox>
-    <TextBox backgroundColor={"navy"} color={"#FFFFFF"}>TextBox</TextBox>
-    <TextBox backgroundColor={"navy"} color={"#FFFFFF"}>TextBox</TextBox>
+    <TextBox text="TextBox" backgroundColor={"navy"} color={"#FFFFFF"} />
+    <TextBox text="TextBox" backgroundColor={"navy"} color={"#FFFFFF"} />
+    <TextBox text="TextBox" backgroundColor={"navy"} color={"#FFFFFF"} />
+    <TextBox text="TextBox" backgroundColor={"navy"} color={"#FFFFFF"} />
+    <TextBox text="TextBox" backgroundColor={"navy"} color={"#FFFFFF"} />
+    <TextBox text="TextBox" backgroundColor={"navy"} color={"#FFFFFF"} />
+    <TextBox text="TextBox" backgroundColor={"navy"} color={"#FFFFFF"} />
+    <TextBox text="TextBox" backgroundColor={"navy"} color={"#FFFFFF"} />
+    <TextBox text="TextBox" backgroundColor={"navy"} color={"#FFFFFF"} />
+    <TextBox text="TextBox" backgroundColor={"navy"} color={"#FFFFFF"} />
+    <TextBox text="TextBox" backgroundColor={"navy"} color={"#FFFFFF"} />
+    <TextBox text="TextBox" backgroundColor={"navy"} color={"#FFFFFF"} />
   </GridUi>
 );
 
