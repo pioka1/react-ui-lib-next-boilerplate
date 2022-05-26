@@ -1,11 +1,10 @@
 import { Page } from "./templates/Page";
-import { TextBox } from "./components/TextBox/TextBox";
+import { TextBox, Hero } from "./components";
 
-const config = {
-	componentMappings: {
-		"wif-lm:pages/page": Page,
-		"wif-lm:components/textbox": TextBox,
-	},
+export const config = {
+  componentMappings: {
+    "wif-lm:pages/page": Page,
+    "wif-lm:components/textbox": TextBox,
+    "wif-lm:components/hero": Hero,
+  },
 };
-
-export { config };

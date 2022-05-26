@@ -24,9 +24,7 @@ const Boilerplate:React.FC<BoilerplateProps> = ({
     </Head>
     <Navigation pagenav={pagenav} currentLanguage={currentLanguage} />
     <main>
-      <Container>
-        {children}
-      </Container>
+      {children}
     </main>
     <Footer />
   </>

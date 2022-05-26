@@ -1,0 +1,39 @@
+label: Text Box
+form:
+  properties:
+    image:
+      label: Image
+      $type: damLinkField
+      required: true
+    text:
+      label: Text
+      $type: textField
+      required: true
+    buttons:
+      label: Buttons
+      $type: jcrMultiField
+      field:
+        label: ""
+        $type: compositeField
+        properties:
+          text:
+            label: Text
+            $type: textField
+            i18n: true
+          link:
+            label: Link
+            $type: pageLinkField
+            converterClass: info.magnolia.ui.editor.converter.JcrNodeToPathConverter
+          type:
+            label: Type
+            $type: radioButtonGroupField
+            defaultValue: primary
+            datasource:
+              $type: optionListDatasource
+              options:
+                - name: primary
+                  value: primary
+                  label: Primary (blue bg, white text)
+                - name: secondary
+                  value: secondary
+                  label: Secondary (white bg, blue text)

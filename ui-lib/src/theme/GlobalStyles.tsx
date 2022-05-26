@@ -46,6 +46,9 @@ export const GlobalStyles = () => {
     span, p, a, b, strong, i, em, li, pre, code, q, blockquote, button {
       font-size: 1.4rem;
     }
+    a {
+      text-decoration: none;
+    }
   `;
 
   return <Global styles={styles} />;

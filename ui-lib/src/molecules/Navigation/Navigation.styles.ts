@@ -12,6 +12,11 @@ export const Nav = styled.nav<StyledNavigationProps>`
 	grid-template-columns: repeat(3, 1fr);
   background-color: ${props => props.backgroundColor};
   padding: 16px 0;
+  box-shadow: 0 0 12px #CCCCCC;
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 export const LogoContainer = styled.span`
@@ -23,9 +28,11 @@ export const PageLinksContainer = styled.ul`
 	list-style-type: none;
   justify-content: center;
   align-items: center;
-  a {
-    text-decoration: none;
+
+  li {
+    margin: 0 20px;
   }
+
   span {
     font-size: 2rem;
     color: ${props => props.theme.color.primary};

@@ -31,63 +31,9 @@ interface ECorpTheme {
 	}
 }
 
-const eCorpTestTheme1: ECorpTheme = {
-  name: "ECorp Test Theme 1",
-  breakpoints: {
-    md: 768,
-    lg: 992,
-    xl: 1200,
-    xxl: 1440,
-  },
-  color: {
-    primary: "#74D0FF",
-    secondary: "#555",
-    tertiary: "#777"
-  },
-  typography: {
-    fontFamily: {
-      name: "Verdana"
-    },
-    fontSize: {
-      xs: "0.5rem",
-      sm: "0.8rem",
-      md: "1.0rem",
-      lg: "1.2rem",
-      xl: "1.5rem",
-    }
-  }
-};
-
-const eCorpTestTheme2: ECorpTheme = {
-  name: "ECorp Test Theme 2",
-  breakpoints: {
-    md: 768,
-    lg: 992,
-    xl: 1200,
-    xxl: 1440,
-  },
-  color: {
-    primary: "#10E856",
-    secondary: "#555",
-    tertiary: "#777"
-  },
-  typography: {
-    fontFamily: {
-      name: "Trebuchet MS"
-    },
-    fontSize: {
-      xs: "0.5rem",
-      sm: "0.8rem",
-      md: "1.0rem",
-      lg: "1.2rem",
-      xl: "1.5rem",
-    }
-  }
-};
-
 const ECorpThemeProvider = ThemeProvider;
 
 const mq = (breakpoint: number) => `@media (min-width: ${breakpoint}px)`;
 
-export { ECorpTheme, ECorpThemeProvider, eCorpTestTheme1, eCorpTestTheme2, mq };
+export { ECorpTheme, ECorpThemeProvider, mq };
 export * from "./GlobalStyles";

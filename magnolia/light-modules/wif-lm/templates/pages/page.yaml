@@ -11,3 +11,5 @@ areas:
     availableComponents:
       TextBox:
         id: wif-lm:components/textbox
+      Hero:
+        id: wif-lm:components/hero

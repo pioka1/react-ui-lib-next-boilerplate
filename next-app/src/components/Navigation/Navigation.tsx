@@ -2,7 +2,7 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Image from "next/image";
 import React from "react";
-import { Navigation as NavigationUi } from "@ecorp/ui-lib";
+import { Logo, Navigation as NavigationUi } from "@ecorp/ui-lib";
 
 import { locales, wifTheme } from "../../constants/app";
 
@@ -20,12 +20,7 @@ const Navigation:React.FC<NavigationProps> = (props) => {
   const logo = (
     <Link href="/" passHref>
       <a>
-        <Image
-          src="/wif-logo.svg"
-          alt="Work in Finland logo"
-          width="108"
-          height="45"
-        />
+        <Logo color={wifTheme.color.primary} />
       </a>
     </Link>
   );

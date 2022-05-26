@@ -13,9 +13,11 @@ const Template: ComponentStory<typeof ButtonUi> = (args) => <ButtonUi {...args} 
 
 export const Button = Template.bind({});
 Button.args = {
+  backgroundColor: "#ff5c5c",
+  color: "white",
   text: "Drink",
   icon: ECorpIcon.DRINK,
   iconPosition: "right",
   iconSize: ECorpIconSize.MD,
-  iconColor: "#000000"
+  iconColor: "white"
 };
